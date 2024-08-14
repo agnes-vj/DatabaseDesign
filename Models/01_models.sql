@@ -1,22 +1,32 @@
-DROP DATABASE IF EXISTS topmodelsql;
-CREATE DATABASE topmodelsql;
+-- Drop the database if it exists
+IF DB_ID('topmodelsql') IS NOT NULL
+BEGIN
+    ALTER DATABASE topmodelsql SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE topmodelsql;
+END
 
-\c topmodelsql
+CREATE DATABASE topmodelsql;
+GO
+
+USE topmodelsql;
+GO
 
 CREATE TABLE models
 ( 
-    model_id SERIAL PRIMARY KEY,
-    model_name VARCHAR(100),
-    area VARCHAR(50),
-    price_per_event FLOAT,
-    category VARCHAR(100),
-    agent VARCHAR(50),
-    brand TEXT,
-    trait VARCHAR(60),
-    rating INT, 
-    next_event_date TEXT, 
-    revenue  FLOAT
+    model_id INT IDENTITY(1,1) PRIMARY KEY,   
+    model_name VARCHAR(100),                  
+    area VARCHAR(50),                         
+    price_per_event FLOAT,                    
+    category VARCHAR(100),                    
+    agent VARCHAR(50),                        
+    brand VARCHAR(MAX),                               
+    trait VARCHAR(60),                        
+    rating INT,                               
+    next_event_date VARCHAR(50),              
+    revenue FLOAT                             
 );
+GO
+
 
 INSERT INTO models
     (model_name, area, price_per_event, category, agent, brand, trait, rating, next_event_date, revenue ) 
