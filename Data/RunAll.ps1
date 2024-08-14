@@ -1,11 +1,12 @@
-# Edit this server name if required
-$ServerName = "localhost"
+# Edit your server name, e.g. "DESKTOP-5\SQLEXPRESS" 
+$ServerName = "ENTER_SERVER_NAME"
+$UserName = "ENTER_SQL_SERVER_USERNAME"
+$Password = "ENTER_SQL_SERVER_PASSWORD"
 
-$files = Get-ChildItem -Path "./data" -Filter *.sql
+$files = Get-ChildItem -Path "./Data" -Filter *.sql
 
 foreach($file in $files){
 	$outputFile = [System.IO.Path]::ChangeExtension($file.FullName, ".txt")
 	
-	# Edit this `sqlcmd` to add authentication if required
-	sqlcmd -S $ServerName -i $file.FullName > $outputFile
+	sqlcmd -S $ServerName -U $UserName -P $Password -i $file.FullName > $outputFile
 }
