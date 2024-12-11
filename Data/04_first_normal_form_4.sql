@@ -30,6 +30,34 @@ VALUES
 ('Thor Odinson', 'Mr', 'Thor', 'New Asgard', 'Men In Black, Extraction'),
 ('Bruce Banner', 'Mr', 'Hulk', 'Champion''s Quarters', 'Shutter Island, Begin Again, Dark Waters');
 GO
+CREATE TABLE nc_rentals1NF
+( 
+    full_name VARCHAR(25),   
+    title VARCHAR(30),                    
+    preferred_name VARCHAR(25),          
+    address VARCHAR(25),                 
+    movies_rented VARCHAR(25),
+    PRIMARY KEY (full_name, movies_rented)      
+);
+GO
 
-SELECT * FROM nc_rentals;
+INSERT INTO nc_rentals1NF (full_name, title, preferred_name, address, movies_rented)
+VALUES
+('Natasha Romanoff', 'Ms', 'Black Widow', 'Soul Stone', 'Her'),
+('Natasha Romanoff', 'Ms', 'Black Widow', 'Soul Stone', 'Lucy'),
+('Natasha Romanoff', 'Ms', 'Black Widow', 'Soul Stone', 'Ghost in the Shell'),
+('Tony Stark', 'Mr', 'Ironman', 'Stark Tower', 'Sherlock Holmes'),
+('Steve Rogers', 'Mr', 'Captain America', 'Iceburg', 'The Gray Man'),
+('Steve Rogers', 'Mr', 'Captain America', 'Iceburg', 'Knives Out'),
+('Wanda Maximoff', 'Ms', 'Scarlet Witch', 'Asylum', 'Wind River'),
+('Wanda Maximoff', 'Ms', 'Scarlet Witch', 'Asylum', 'Wandavision'),
+('Thor Odinson', 'Mr', 'Thor', 'New Asgard', 'Men In Black'),
+('Thor Odinson', 'Mr', 'Thor', 'New Asgard', 'Extraction'),
+('Bruce Banner', 'Mr', 'Hulk', 'Champion''s Quarters', 'Shutter Island'),
+('Bruce Banner', 'Mr', 'Hulk', 'Champion''s Quarters', 'Begin Again'),
+('Bruce Banner', 'Mr', 'Hulk', 'Champion''s Quarters', 'Dark Waters');
+
+GO
+
+SELECT * FROM nc_rentals1NF;
 GO
