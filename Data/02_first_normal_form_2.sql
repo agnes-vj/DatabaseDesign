@@ -53,7 +53,6 @@ VALUES
     (6, 'Edd', 'Cloud', 'Leeds');
 
 GO
-GO
 
 SELECT * FROM nc_mentors1NF;
 GO
