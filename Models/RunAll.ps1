@@ -1,5 +1,5 @@
 # Edit your server name, e.g. "DESKTOP-5\SQLEXPRESS" 
-$ServerName = ".\AQLExpress"
+$ServerName = ".\SQLExpress"
 
 
 $files = Get-ChildItem -Path "./Models" -Filter *.sql
