@@ -32,3 +32,38 @@ GO
 
 SELECT * FROM food_orders;
 GO
+
+CREATE TABLE food_orders1NF
+( 
+    customer_name VARCHAR(25), 
+    food_order VARCHAR(25),                
+    restaurant VARCHAR(25),                
+    preference VARCHAR(25),
+    PRIMARY KEY (customer_name, food_order)              
+);
+GO
+
+INSERT INTO food_orders1NF (customer_name, food_order, restaurant, preference)
+VALUES
+    ('Jack', 'Cheeseburger', 'McDonald''s', 'Takeaway'),
+    ('Jack', 'Fries', 'McDonald''s', 'Takeaway'),
+    ('Jack', 'Tango', 'McDonald''s', 'Takeaway'),
+    ('Henry', 'McNuggets', 'McDonald''s', 'Dine-in'),
+    ('Henry', 'Fries', 'McDonald''s', 'Dine-in'),
+    ('Henry', 'Coke', 'McDonald''s', 'Dine-in'),
+    ('Henry', 'Apple Pie', 'McDonald''s', 'Dine-in'),
+    ('Jennifer', 'Meatball Sub', 'Subway', 'Dine-in'),
+    ('Jennifer', 'Crisps', 'Subway', 'Dine-in'),
+    ('Jennifer', 'Oasis', 'Subway', 'Dine-in'),
+    ('Tim', 'Wings', 'KFC', 'Takeaway'),
+    ('Tim', 'Sprite', 'KFC', 'Takeaway'),
+    ('Hannah', 'Steak & Cheese Sub', 'Subway', 'Takeaway'),
+    ('Hannah', 'Cookie', 'Subway', 'Takeaway'),
+    ('Hannah', 'Fanta', 'Subway', 'Takeaway'),
+    ('Steph', 'Zinger Burger', 'KFC', 'Takeaway'),
+    ('Steph', 'Fries', 'KFC', 'Takeaway'),
+    ('Steph', 'Oreo Krushem', 'KFC', 'Takeaway');
+GO
+
+SELECT * FROM food_orders1NF;
+GO
