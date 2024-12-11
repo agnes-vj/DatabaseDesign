@@ -28,7 +28,32 @@ VALUES
     (4, 'Jim', 'Software', 'Leeds'),
     (5, 'John', 'Cloud', 'Manchester'),
     (6, 'Edd', 'Data, Software, Cloud', 'Leeds');
+
+CREATE TABLE nc_mentors1NF
+( 
+    employee_id INT,
+    mentor_name VARCHAR(25),   
+    department VARCHAR(25),    
+    location VARCHAR(25),
+    PRIMARY KEY (employee_id, department)
+);
 GO
 
-SELECT * FROM nc_mentors;
+INSERT INTO nc_mentors1NF (employee_id, mentor_name, department, location)
+VALUES
+    (1, 'Rose', 'Software', 'Manchester'),
+    (2, 'Eli', 'Software', 'Manchester'),
+    (2, 'Eli', 'Data', 'Manchester'),
+    (3, 'Haz', 'Cloud', 'Manchester'),
+    (3, 'Haz', 'Data', 'Manchester'),
+    (4, 'Jim', 'Software', 'Leeds'),
+    (5, 'John', 'Cloud', 'Manchester'),
+    (6, 'Edd', 'Data', 'Leeds'),
+    (6, 'Edd', 'Software', 'Leeds'),
+    (6, 'Edd', 'Cloud', 'Leeds');
+
+GO
+GO
+
+SELECT * FROM nc_mentors1NF;
 GO
